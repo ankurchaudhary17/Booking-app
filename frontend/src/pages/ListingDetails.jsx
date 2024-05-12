@@ -26,7 +26,9 @@ const ListingDetails = () => {
         }
       );
 
+      // debugger;
       const data = await response.json();
+      console.log(data);
       setListing(data);
       setLoading(false);
     } catch (err) {
@@ -74,6 +76,7 @@ const ListingDetails = () => {
         endDate: dateRange[0].endDate.toDateString(),
         totalPrice: listing.price * dayCount,
       }
+      debugger;
 
       const response = await fetch("http://localhost:3001/bookings/create", {
         method: "POST",
@@ -124,13 +127,13 @@ const ListingDetails = () => {
 
         <div className="profile">
           <img
-            src={`http://localhost:3001/${listing.creator.profileImagePath.replace(
+            src={`http://localhost:3001/${listing?.creator?.profileImagePath?.replace(
               "public",
               ""
             )}`}
           />
           <h3>
-            Hosted by {listing.creator.firstName} {listing.creator.lastName}
+            Hosted by {listing?.creator?.firstName} {listing?.creator?.lastName}
           </h3>
         </div>
         <hr />
