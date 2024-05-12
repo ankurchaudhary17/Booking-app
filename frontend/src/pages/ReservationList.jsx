@@ -17,7 +17,7 @@ const ReservationList = () => {
   const getReservationList = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/users/${userId}/reservations`,
+        `https://booking-app-eight-lime.vercel.app/users/${userId}/reservations`,
         {
           method: "GET",
         }
